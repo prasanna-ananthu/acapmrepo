@@ -1,0 +1,2 @@
+headerID,prNum,prType,reqNum,headerDesc,totalPrice,currency_code,status_statusID
+05b0554c-f851-442e-b1cc-87f7d0721101,PR001,Purchase Requisition,RE00001,Purchase of office supplies,1500.00,USD,05b0554c-f851-442e-b1cc-87f7d0721111

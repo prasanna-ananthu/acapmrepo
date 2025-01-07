@@ -1,0 +1,195 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "acapm.allcapapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.16.1",
+      "toolsId": "ad531abe-ea85-4fb5-8e82-31a0382a47e1"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/mainservice/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "acapapp-manage": {
+          "semanticObject": "acapapp",
+          "action": "manage",
+          "title": "{{flpTitle}}",
+          "subTitle": "{{flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.131.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "acapm.allcapapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "reqHeaderSetList",
+          "target": "reqHeaderSetList"
+        },
+        {
+          "pattern": "reqHeaderSet({key}):?query:",
+          "name": "reqHeaderSetObjectPage",
+          "target": "reqHeaderSetObjectPage"
+        },
+        {
+          "pattern": "reqHeaderSet({key})/Items({key2}):?query:",
+          "name": "reqItemSetObjectPage",
+          "target": "reqItemSetObjectPage"
+        }
+      ],
+      "targets": {
+        "reqHeaderSetList": {
+          "type": "Component",
+          "id": "reqHeaderSetList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/reqHeaderSet",
+              "variantManagement": "Page",
+              "navigation": {
+                "reqHeaderSet": {
+                  "detail": {
+                    "route": "reqHeaderSetObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "reqHeaderSetObjectPage": {
+          "type": "Component",
+          "id": "reqHeaderSetObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/reqHeaderSet",
+              "navigation": {
+                "Items": {
+                  "detail": {
+                    "route": "reqItemSetObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "Files/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "actions": {
+                    "Upload": {
+                      "press": "acapm.allcapapp.ext.controller.UploadFile.onUploadDialog",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Upload"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "reqItemSetObjectPage": {
+          "type": "Component",
+          "id": "reqItemSetObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/reqHeaderSet/Items"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "acapm"
+  }
+}

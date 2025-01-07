@@ -1,0 +1,2 @@
+itemID,prItemNum,purOrg,material_materialID,materialDesc_materialID,plant_plant,quantity,unitOfMeasure,price,status_statusID,Headers_headerID
+05b0554c-f851-442e-b1cc-87f7d0721121,100001,Org001,HT-1000,HT-1000,0001,10,EA,150.00,05b0554c-f851-442e-b1cc-87f7d0721111,05b0554c-f851-442e-b1cc-87f7d0721101

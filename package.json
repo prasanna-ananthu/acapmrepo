@@ -1,0 +1,55 @@
+{
+  "name": "acapm",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/hana": "^1",
+    "@sap-cloud-sdk/http-client": "^3.25.0",
+    "@sap-cloud-sdk/resilience": "^3.25.0",
+    "@sap/cds": "^8",
+    "express": "^4",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.7.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
+    "rimraf": "^5.0.5",
+    "mbt": "^1.2.29"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-acapmapp": "cds watch --open acapmapp/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy acapm --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-allcapapp": "cds watch --open allcapapp/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "OP_API_PRODUCT_SRV_0001": {
+        "kind": "odata",
+        "model": "srv/external/OP_API_PRODUCT_SRV_0001",
+        "credentials": {
+          "destination": "S4H",
+          "path": "/sap/opu/odata/sap/API_PRODUCT_SRV"
+        },
+        "[production]": {
+          "connectivity": true,
+          "destinations": true
+        }
+      },
+      "auth": "dummy"
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
+  },
+  "sapux": [
+    "app/acapmapp",
+    "app/allcapapp"
+  ]
+}

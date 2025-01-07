@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:u="sap.ui.unified">
+  <Dialog id="headersUploadDialogs" title="Excel Upload" class="sapUiResponsiveContentPadding"
+    core:require="{controller: 'acapm/allcapapp/ext/controller/UploadFile' }"
+    afterClose="controller.onAfterClose">
+    <customHeader>
+      <Toolbar>
+        <content>
+          <!-- Left-Aligned Title -->
+          <Title text="Upload" />
+        </content>
+      </Toolbar>
+    </customHeader>
+    <content>
+      <u:FileUploader 
+                id="fileUploaders"  
+                multiple="false" 
+                fileAllowed="controller.onFileAllowed"
+                fileEmpty="controller.onFileEmpty"
+                uploadComplete="controller.onCompleteUpload" 
+                typeMissmatch="controller.onTypeMismatch" 
+                sendXHR="true" 
+                useMultipart="false" 
+                placeholder="Choose a file.."
+                httpRequestMethod="Put"
+        />
+      <!-- httpRequestMethod="Put" -->
+    </content>
+    <beginButton>
+          <Button id="confirmUploads" text="Confirm" press="controller.onConfirmUpload" />
+      </beginButton>
+      <endButton>
+          <Button id="cancelUploads" text="Cancel" press="controller.onCloseDialog"/>
+      </endButton>
+  </Dialog>
+</core:FragmentDefinition>
