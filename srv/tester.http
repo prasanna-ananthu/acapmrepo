@@ -1,0 +1,11 @@
+###Get
+http://localhost:4004/odata/v4/mainservice
+
+###Get
+http://localhost:4004/odata/v4/mainservice/reqItemSet
+
+###Get
+http://localhost:4004/odata/v4/mainservice/reqItemSet?$filter=Headers_headerID eq '550e8400-e29b-41d4-a716-446655440100'
+
+###Get
+http://localhost:4004/odata/v4/mainservice/reqItemSet?$expand=Headers

@@ -91,6 +91,26 @@ annotate service.reqItemSet with @(
             $Type : 'UI.DataField',
             Label : 'Plant',
             Value : plant_plant,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Item Price',
+            Value : itemPrice,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Quantity',
+            Value : quantity,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Units Price',
+            Value : unitsPrice,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'UnitsofMeasure',
+            Value : unitOfMeasure,
         }
     ],
     UI.Facets:[
@@ -116,6 +136,21 @@ annotate service.reqItemSet with @(
             $Type : 'UI.DataField',
             Label : 'Material ID',
             Value : material_materialID
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Quantity',
+            Value : quantity
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Units Price',
+            Value : unitsPrice
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Units Of Measure',
+            Value : unitOfMeasure
         }
     ]
 );

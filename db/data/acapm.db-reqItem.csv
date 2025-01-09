@@ -1,2 +1,3 @@
-itemID,prItemNum,purOrg,material_materialID,materialDesc_materialID,plant_plant,quantity,unitOfMeasure,price,status_statusID,Headers_headerID
-05b0554c-f851-442e-b1cc-87f7d0721121,100001,Org001,HT-1000,HT-1000,0001,10,EA,150.00,05b0554c-f851-442e-b1cc-87f7d0721111,05b0554c-f851-442e-b1cc-87f7d0721101
+itemID,prItemNum,purOrg,material_materialID,materialDesc_materialID,plant_plant,quantity,unitOfMeasure,unitsPrice,itemPrice,status_statusID,Headers_headerID
+550e8400-e29b-41d4-a716-446655440200,PRIT1,PUR001,MTRL001,Material Description 1,0001,10,EA,50.00,500.00,550e8400-e29b-41d4-a716-446655440000,550e8400-e29b-41d4-a716-446655440100
+550e8400-e29b-41d4-a716-446655440201,PRIT2,PUR002,MTRL002,Material Description 2,0001,5,EA,100.00,200.00,550e8400-e29b-41d4-a716-446655440001,550e8400-e29b-41d4-a716-446655440101

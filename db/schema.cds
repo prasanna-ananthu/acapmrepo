@@ -8,7 +8,7 @@ entity reqHeader : managed {
         prType : String(40);
         reqNum: String(10) @readonly;
         headerDesc : String;
-        totalPrice : Decimal;
+        totalPrice : Decimal(10,2) @readonly;
         currency : Currency;
         status : Association to status;
         Items: Composition of  many reqItem on Items.Headers = $self;
@@ -23,9 +23,10 @@ entity reqItem : managed {
         plant : Association to plants;
         quantity: Integer;
         unitOfMeasure: String;
-        price: Decimal(10, 2);
+        unitsPrice: Decimal(10, 2);
+        itemPrice:Decimal(10,2);
         status : Association to status;
-        Headers : Association to one reqHeader;
+        Headers : Association to reqHeader;
 }
 entity status{
     key statusID : UUID;
