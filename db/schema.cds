@@ -8,11 +8,11 @@ entity reqHeader : managed {
         prType : String(40);
         reqNum: String(10) @readonly;
         headerDesc : String;
-        totalPrice : Decimal(10,2) @readonly;
+        totalPrice : Decimal(10,2);
         currency : Currency;
         status : Association to status;
         Items: Composition of  many reqItem on Items.Headers = $self;
-        Files: Composition of  many attachments on Files.Header = $self;
+        // Files: Composition of  many attachments on Files.Header = $self;
 }
 entity reqItem : managed {
     key itemID : UUID;
@@ -46,8 +46,8 @@ entity plants as projection on prod_api.A_ProductPlant{
 //         noteText : String;
 // }
 
-entity attachments: managed {
-    key attachmentID : UUID @cuid ;
-        attachmentType : String;
-        Header: Association to reqHeader;
-}
+// entity attachments: managed {
+//     key attachmentID : UUID @cuid ;
+//         attachmentType : String;
+//         Header: Association to reqHeader;
+// }

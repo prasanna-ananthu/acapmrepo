@@ -106,11 +106,6 @@
           "pattern": "reqHeaderSet({key}):?query:",
           "name": "reqHeaderSetObjectPage",
           "target": "reqHeaderSetObjectPage"
-        },
-        {
-          "pattern": "reqHeaderSet({key})/Items({key2}):?query:",
-          "name": "reqItemSetObjectPage",
-          "target": "reqItemSetObjectPage"
         }
       ],
       "targets": {
@@ -151,19 +146,6 @@
                 "Items": {
                   "detail": {
                     "route": "reqItemSetObjectPage"
-                  }
-                }
-              },
-              "controlConfiguration": {
-                "Files/@com.sap.vocabularies.UI.v1.LineItem": {
-                  "actions": {
-                    "Upload": {
-                      "press": "acapm.allcapapp.ext.controller.UploadFile.onUploadDialog",
-                      "visible": true,
-                      "enabled": true,
-                      "requiresSelection": false,
-                      "text": "Upload"
-                    }
                   }
                 }
               }

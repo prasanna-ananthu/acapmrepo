@@ -23,11 +23,11 @@ annotate service.reqHeaderSet with @(
             Label : 'Item Details',
             Target : 'Items/@UI.LineItem'
         },
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : 'Attachment Details',
-            Target : 'Files/@UI.LineItem'
-        }
+        // {
+        //     $Type : 'UI.ReferenceFacet',
+        //     Label : 'Attachment Details',
+        //     Target : 'Files/@UI.LineItem'
+        // }
     ],
     UI.Identification:[
         {
@@ -174,14 +174,13 @@ annotate service.materialSet with @(
 //     ]
 // );
 
-annotate service.attachmentSet with @(
-    UI.LineItem:[
-        {
-            $Type : 'UI.DataField',
-            Label : 'Attachment ID',
-            Value : attachmentID,
-        },
-    ]
-);
-
+// annotate service.attachmentSet with @(
+//     UI.LineItem:[
+//         {
+//             $Type : 'UI.DataField',
+//             Label : 'Attachment ID',
+//             Value : attachmentID,
+//         },
+//     ]
+// );
 

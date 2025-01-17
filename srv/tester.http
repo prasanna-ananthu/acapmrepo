@@ -9,3 +9,13 @@ http://localhost:4004/odata/v4/mainservice/reqItemSet?$filter=Headers_headerID e
 
 ###Get
 http://localhost:4004/odata/v4/mainservice/reqItemSet?$expand=Headers
+
+###
+POST http://localhost:4004/odata/v4/mainservice/reqHeaderSet/Items
+Content-Type: application/json
+
+{
+    "itemPrice": 100,
+    "quantity": 5,
+    "Headers_headerID": "550e8400-e29b-41d4-a716-446655440100"
+}
