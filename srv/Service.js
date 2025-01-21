@@ -17,7 +17,8 @@ module.exports = cds.service.impl( async function(){
         return prod_api.run(req.query); // Forward the query to the external API
     });
 
-    const { reqHeaderSet } = this.entities;
+    const { reqHeaderSet, reqItemSet } = this.entities;
+    // generating the reqNum 
     this.before('CREATE', 'reqHeaderSet', async (req) => {
         console.log('CREATE event triggered for reqHeader');
         
@@ -47,7 +48,6 @@ module.exports = cds.service.impl( async function(){
         req.data.reqNum = newReqNum; // Assign to the new request
     });
 
-    const { reqItemSet } = this.entities;
     // Calculate `itemPrice` and 'totalPrice'
     this.after(['CREATE', 'UPDATE'], 'reqHeaderSet', async (req) => {
         console.log("trigger",req);
@@ -80,5 +80,7 @@ module.exports = cds.service.impl( async function(){
         each.itemPrice = each.quantity * each.unitsPrice;
       }
     }); 
+
+    
 
 })

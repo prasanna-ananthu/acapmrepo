@@ -1,6 +1,7 @@
 namespace acapm.db;
 using { managed, Currency } from '@sap/cds/common';
 using { OP_API_PRODUCT_SRV_0001 as prod_api } from '../srv/external/OP_API_PRODUCT_SRV_0001';
+// using {Attachments} from '@cap-js/sdm';
 
 entity reqHeader : managed {
     key headerID : UUID;
@@ -12,7 +13,7 @@ entity reqHeader : managed {
         currency : Currency;
         status : Association to status;
         Items: Composition of  many reqItem on Items.Headers = $self;
-        // Files: Composition of  many attachments on Files.Header = $self;
+        // attachments : Composition of many Attachments;
 }
 entity reqItem : managed {
     key itemID : UUID;
@@ -41,13 +42,12 @@ entity plants as projection on prod_api.A_ProductPlant{
         key Plant as plant
 };
 
-// entity notes : managed {
-//     key noteID : UUID @cuid ;
-//         noteText : String;
+entity notes : managed {
+    key noteID : UUID @cuid ;
+        noteText : String;
+}
+
+// extend reqHeader with {
+    
 // }
 
-// entity attachments: managed {
-//     key attachmentID : UUID @cuid ;
-//         attachmentType : String;
-//         Header: Association to reqHeader;
-// }

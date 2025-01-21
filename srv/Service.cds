@@ -10,5 +10,5 @@ service MainService @(path:'mainservice') {
     entity materialSet as projection on db.Materials;
     entity plantSet as projection on db.plants;
     // entity attachmentSet as projection on db.attachments;
-    // entity InternalNotes as projection on db.notes;
+    entity InternalNotes as projection on db.notes;
 }

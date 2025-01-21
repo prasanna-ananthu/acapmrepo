@@ -1,3 +1,9 @@
-<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:u="sap.ui.unified">
-  
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <VBox id="vboxid">
+        <Text id="commentLabel" text="Add a Comment" />
+        <Toolbar>
+            <Input id="newCommentInput" placeholder="Enter your comment..." width="80%" />
+            <Button text="Post" press=".onPostComment" />
+        </Toolbar>
+    </VBox>
 </core:FragmentDefinition>
